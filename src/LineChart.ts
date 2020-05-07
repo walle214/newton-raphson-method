@@ -126,7 +126,6 @@ export default class LineCart {
   drawYAxis = () => {
     var context = this.context;
     context!.save();
-    context!.save();
     context!.beginPath();
     context!.moveTo(this.x, this.y);
     context!.lineTo(this.x, this.y + this.height);
