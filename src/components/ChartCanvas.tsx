@@ -10,8 +10,9 @@ const ChartCanvas = () => {
     <div
       style={{
         border: '2px white solid',
-        width: '90%',
-        margin: 'auto',
+        width: '40%',
+        margin: '50px',
+        marginRight: 'auto',
       }}
     >
       <AspectRatioFence ratio={CANVAS_ASPECT_RATIO}>

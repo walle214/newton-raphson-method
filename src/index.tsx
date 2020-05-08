@@ -4,7 +4,8 @@ import './index.css';
 
 import App from './App';
 import LineCart from './LineChart';
-import { CANVAS_ID, evaluateFunction } from './configs';
+import { CANVAS_ID, evaluateFunction, ChartData } from './configs';
+import doRaphsonNewton from './doRaphsonNewton';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,58 +14,21 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+const points: ChartData = [];
+const X = 20;
+for (let a = -X; a < X; a += 0.1) {
+  points.push({
+    x: a,
+    y: evaluateFunction(a),
+  });
+}
 const myLineChart = new LineCart({
   canvasId: CANVAS_ID,
-  minX: 0,
-  minY: 0,
-  maxX: 140,
-  maxY: 100,
-  unitsPerTickX: 10,
-  unitsPerTickY: 10,
+  minX: -2,
+  minY: -2,
+  maxX: 2,
+  maxY: 2,
+  initialChart: points,
 });
 
-const a: Object[] = [];
-for (var i = 1; i < 14; i++) {
-  a.push({
-    x: i * 10,
-    y: evaluateFunction(i),
-  });
-  console.log(evaluateFunction(i));
-}
-
-// var data = [
-//   {
-//     x: 0,
-//     y: 0,
-//   },
-//   {
-//     x: 20,
-//     y: 10,
-//   },
-//   {
-//     x: 40,
-//     y: 15,
-//   },
-//   {
-//     x: 60,
-//     y: 40,
-//   },
-//   {
-//     x: 80,
-//     y: 60,
-//   },
-//   {
-//     x: 100,
-//     y: 50,
-//   },
-//   {
-//     x: 120,
-//     y: 85,
-//   },
-//   {
-//     x: 140,
-//     y: 100,
-//   },
-// ];
-
-myLineChart.drawLine(a, 'blue', 3);
+doRaphsonNewton(1, 0, myLineChart);
