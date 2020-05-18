@@ -4,7 +4,6 @@ import { AspectRatioFence } from 'react-aspect-ratio-fence';
 import 'react-aspect-ratio-fence/css/style.css';
 
 import { CANVAS_ASPECT_RATIO, CANVAS_ID } from '../configs';
-
 const ChartCanvas = () => {
   return (
     <div

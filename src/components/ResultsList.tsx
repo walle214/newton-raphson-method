@@ -1,14 +1,15 @@
 import React from 'react';
 
-export interface ResultListProps {
+interface ResultListProps {
   results: Number[];
 }
-export const ResultList = ({ results }: ResultListProps) => {
+const ResultList = ({ results }: ResultListProps) => {
   return (
     <ul>
-      {results.map((r) => (
-        <li>r</li>
+      {results.map((r, i) => (
+        <li key={i}>{r}</li>
       ))}
     </ul>
   );
 };
+export default ResultList;
